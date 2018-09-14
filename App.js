@@ -1,7 +1,18 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-let customData = require('./data-1.json');
+var customData = require('./data-1.json');
+
+//var data = customData.map(function(item) {
+ // return {
+  //  key: item.name.first_name,
+  //  key2: item.name.last_name,
+//  };
+//});
+
+var data = customData.map(item => item.name.first_name);
+
+console.log(data[0]);
 //var obj = JSON.parse(customData);
 //console.log(obj));
 //let parsedData = require(JSON.parse('./data-1.json');
@@ -17,15 +28,21 @@ const styles = StyleSheet.create({
 
 
 export default class App extends React.Component {
+  constructor(){
+    super();
+    this.state = {data: []}
+  }
+  let data = this.state.data;
   render() {
     return (
       
       <View style={styles.container}>
         <Text>Hello Swag World</Text>
+        <Text>{data[0]}</Text>
         
-        <Text>{JSON.stringify(customData)} </Text>
       </View>
     );
   }
 }
-
+//<Text>{JSON.stringify(data)}</Text>
+//<Text>{JSON.stringify(customData)} </Text>

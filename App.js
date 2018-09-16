@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image, AppRegistry, Button } from 'react-native';
 
 var customData = require('./data-1.json');
 
@@ -10,9 +10,18 @@ var customData = require('./data-1.json');
 //  };
 //});
 
-var data = customData.map(item => item.name.first_name);
-
-console.log(data[0]);
+var firstName = customData.map(item => item.name.first_name);
+var lastName = customData.map(item => item.name.last_name);
+var homeAddress = customData.map(item => item.home.address);
+var homeEmail = customData.map(item => item.home.email);
+var homePhone = customData.map(item => item.home.phone_number);
+var avatar = customData.map(item => item.avatar);
+var workAddress = customData.map(item => item.work.address);
+var workEmail = customData.map(item => item.work.email);
+var workPhone = customData.map(item => item.work.phone_numnber);
+var workCompany = customData.map(item => item.work.company);
+var workDepartment = customData.map(item => item.work.department);
+var workJob = customData.map(item => item.work.job_title);
 //var obj = JSON.parse(customData);
 //console.log(obj));
 //let parsedData = require(JSON.parse('./data-1.json');
@@ -28,21 +37,60 @@ const styles = StyleSheet.create({
 
 
 export default class App extends React.Component {
-  constructor(){
-    super();
-    this.state = {data: []}
+  constructor(props){
+    super(props);
+    this.state = {counter: 0}
   }
-  let data = this.state.data;
+ // let data = this.state.data;
+ addCounter = () => {
+   this.setState({counter: this.state.counter + 1})
+ }
+ 
+
+
   render() {
+    if(this.state.counter % 2 == 0)
+    {
     return (
+     
       
       <View style={styles.container}>
-        <Text>Hello Swag World</Text>
-        <Text>{data[0]}</Text>
+       <Image
+          style={{width: 400, height: 250}}
+          source={{uri: avatar[0]}}
+        />
+        <Text>{firstName[0]} {lastName[0]}</Text>
+        <Button title = "Show work info" onPress = {this.addCounter}></Button>
+        
+        
+        <Text>{homeAddress[0]}</Text>
+        <Text>{homeEmail[0]}</Text>
+        <Text>{homePhone[0]}</Text>
+        
+        
         
       </View>
-    );
+    )
+    }
+    else{
+      return(
+        <View style={styles.container}>
+        <Image
+          style={{width: 400, height: 250}}
+          source={{uri: avatar[0]}}
+        />
+        <Text>{firstName[0]} {lastName[0]}</Text>
+        <Button title = "Show home info" onPress = {this.addCounter}></Button>
+        <Text>{workAddress[0]}</Text>
+        <Text>{workEmail[0]}</Text>
+        <Text>{workPhone[0]}</Text>
+        <Text>{workCompany[0]}</Text>
+        <Text>{workDepartment[0] , <Text>{workJob[0]}</Text>}</Text>
+        </View>
+      )
+    }
+    
+    ;}
+      
+    
   }
-}
-//<Text>{JSON.stringify(data)}</Text>
-//<Text>{JSON.stringify(customData)} </Text>

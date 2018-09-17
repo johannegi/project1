@@ -1,8 +1,8 @@
 {
   "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 22368,
-  "expoServerNgrokUrl": "https://dr-fd5.thorfinnurp.project1.exp.direct",
-  "packagerNgrokUrl": "https://packager.dr-fd5.thorfinnurp.project1.exp.direct",
-  "ngrokPid": 8968
+  "packagerPort": 19002,
+  "packagerPid": 20580,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }

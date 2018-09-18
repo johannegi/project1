@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
     borderColor: 'black',
   },
 });
-//We used this website for inspiration for our animation: 
-//https://facebook.github.io/react-native/docs/animations
+// We used this website for inspiration for our animation:
+// https://facebook.github.io/react-native/docs/animations
 class FadeInView extends React.Component {
   state = {
     fadeAnim: new Animated.Value(0), // Initial value for opacity: 0
@@ -72,9 +72,11 @@ export default class App extends React.Component {
     super(props);
     this.state = { counter: true };
   }
+
   switchViewHome = () => {
     this.setState({ counter: true });
   };
+
   switchViewWork = () => {
     this.setState({ counter: false });
   };
@@ -83,73 +85,74 @@ export default class App extends React.Component {
     if (this.state.counter === true) {
       return (
         <View style={styles.outerContainer}>
-          <FadeInView style={{width: '100%', height: '100%', backgroundColor: 'white'}}>
-          <View style={styles.container}>
-            <Image style={styles.image} source={{ uri: avatar[0] }} />       
-            <Text style={styles.baseText}>
-              {customData.map(item => item.name.first_name)}
-              {' '}
-              {customData.map(item => item.name.last_name)}
-            </Text>
-            <Button
-              title="Show work info"
-              onPress={this.switchViewWork}
-            />
-            <Text style={styles.baseText}>
-              {customData.map(item => item.home.address)}
-            </Text>
-            <Text style={styles.underline} />
-            <Text style={styles.baseText}>
-              {customData.map(item => item.home.email)}
-            </Text>
-            <Text style={styles.underline} />
-            <Text style={styles.baseText}>
-              {customData.map(item => item.home.phone_number)}
-            </Text>
-            <Text style={styles.underline}> </Text>
-          </View>
+          <FadeInView style={{ width: '100%', height: '100%', backgroundColor: 'white' }}>
+            <View style={styles.container}>
+              <Image style={styles.image} source={{ uri: avatar[0] }} />
+              <Text style={styles.baseText}>
+                {customData.map(item => item.name.first_name)}
+                {' '}
+                {customData.map(item => item.name.last_name)}
+              </Text>
+              <Button
+                title="Show work info"
+                onPress={this.switchViewWork}
+              />
+              <Text style={styles.baseText}>
+                {customData.map(item => item.home.address)}
+              </Text>
+              <Text style={styles.underline} />
+              <Text style={styles.baseText}>
+                {customData.map(item => item.home.email)}
+              </Text>
+              <Text style={styles.underline} />
+              <Text style={styles.baseText}>
+                {customData.map(item => item.home.phone_number)}
+              </Text>
+              <Text style={styles.underline} />
+            </View>
           </FadeInView>
         </View>
       );
-    } 
-      return (
-        <FadeInView style={{width: '100%', height: '100%', backgroundColor: 'white'}}>
+    }
+    return (
+      <FadeInView style={{ width: '100%', height: '100%', backgroundColor: 'white' }}>
         <View style={styles.outerContainer}>
           <View style={styles.container}>
 
             <Image style={styles.image} source={{ uri: avatar[0] }} />
             <Text style={styles.baseText}>
 
-              {customData.map(item => item.name.first_name)}{" "}
+              {customData.map(item => item.name.first_name)}
+              {' '}
               {customData.map(item => item.name.last_name)}
             </Text>
             <Button title="Show home info" onPress={this.switchViewHome} />
             <Text style={styles.baseText}>
               {customData.map(item => item.work.address)}
             </Text>
-            <Text style={styles.underline}> </Text>
+            <Text style={styles.underline} />
             <Text style={styles.baseText}>
               {customData.map(item => item.work.email)}
             </Text>
-            <Text style={styles.underline}> </Text>
+            <Text style={styles.underline} />
             <Text style={styles.baseText}>
               {customData.map(item => item.work.phone_number)}
             </Text>
-            <Text style={styles.underline}> </Text>
+            <Text style={styles.underline} />
             <Text style={styles.baseText}>
               {customData.map(item => item.work.company)}
             </Text>
-            <Text style={styles.underline}> </Text>
+            <Text style={styles.underline} />
             <Text style={styles.baseText}>
-              {customData.map(item => item.work.department)}{" "}
-              {customData.map(item => item.work.job_title)}{" "}
+              {customData.map(item => item.work.department)}
+              {' '}
+              {customData.map(item => item.work.job_title)}
+              {' '}
             </Text>
-            <Text style={styles.underline}> </Text>
-          
+            <Text style={styles.underline} />
           </View>
         </View>
-        </FadeInView>
-      );
-      }
-  
+      </FadeInView>
+    );
+  }
 }

@@ -34,7 +34,8 @@ const styles = StyleSheet.create({
     borderColor: 'black',
   },
 });
-
+//We used this website for inspiration for our animation: 
+//https://facebook.github.io/react-native/docs/animations
 class FadeInView extends React.Component {
   state = {
     fadeAnim: new Animated.Value(0), // Initial value for opacity: 0

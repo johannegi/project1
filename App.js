@@ -1,15 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
-//Get the data from the json file
-const customData = require("./data-1.json");
-//get the avatar from the json file with map
+// Get the data from the json file
+const customData = require('./data-1.json');
+// get the avatar from the json file with map
 const avatar = customData.map(item => item.avatar);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center'
+    alignItems: 'center',
     // justifyContent: "center"
   },
   outerContainer: {
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   baseText2: {
     width: '100%',
     borderBottomColor: 'black',
-    borderBottomWidth: 2.5
+    borderBottomWidth: 2.5,
   },
   button2: {
     marginTop: 10,
@@ -34,14 +34,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#00BCD4',
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#fff'
+    borderColor: '#fff',
   },
   image: {
     borderWidth: 1,
     width: 300,
     height: 300,
-    borderColor: 'black'
-  }
+    borderColor: 'black',
+  },
 });
 
 export default class App extends React.Component {

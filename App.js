@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  StyleSheet, Animated, Text, View, Image, Button,
+  StyleSheet, Text, View, Image, Button,
 } from 'react-native';
 
 // Get the data from the json file
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
 });
 // We used this website for inspiration for our animation:
 // https://facebook.github.io/react-native/docs/animations
-class FadeInView extends React.Component {
+/* class FadeInView extends React.Component {
   state = {
     fadeAnim: new Animated.Value(0), // Initial value for opacity: 0
   }
@@ -66,11 +66,14 @@ class FadeInView extends React.Component {
     );
   }
 }
+*/
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { counter: true };
+    this.state = {
+      counter: true,
+    };
   }
 
   switchViewHome = () => {
@@ -85,74 +88,66 @@ export default class App extends React.Component {
     if (this.state.counter === true) {
       return (
         <View style={styles.outerContainer}>
-          <FadeInView style={{ width: '100%', height: '100%', backgroundColor: 'white' }}>
-            <View style={styles.container}>
-              <Image style={styles.image} source={{ uri: avatar[0] }} />
-              <Text style={styles.baseText}>
-                {customData.map(item => item.name.first_name)}
-                {' '}
-                {customData.map(item => item.name.last_name)}
-              </Text>
-              <Button
-                title="Show work info"
-                onPress={this.switchViewWork}
-              />
-              <Text style={styles.baseText}>
-                {customData.map(item => item.home.address)}
-              </Text>
-              <Text style={styles.underline} />
-              <Text style={styles.baseText}>
-                {customData.map(item => item.home.email)}
-              </Text>
-              <Text style={styles.underline} />
-              <Text style={styles.baseText}>
-                {customData.map(item => item.home.phone_number)}
-              </Text>
-              <Text style={styles.underline} />
-            </View>
-          </FadeInView>
-        </View>
-      );
-    }
-    return (
-      <FadeInView style={{ width: '100%', height: '100%', backgroundColor: 'white' }}>
-        <View style={styles.outerContainer}>
           <View style={styles.container}>
-
             <Image style={styles.image} source={{ uri: avatar[0] }} />
             <Text style={styles.baseText}>
-
               {customData.map(item => item.name.first_name)}
-              {' '}
               {customData.map(item => item.name.last_name)}
             </Text>
-            <Button title="Show home info" onPress={this.switchViewHome} />
+            <Button
+              title="Show work info"
+              onPress={this.switchViewWork}
+            />
             <Text style={styles.baseText}>
-              {customData.map(item => item.work.address)}
+              {customData.map(item => item.home.address)}
             </Text>
             <Text style={styles.underline} />
             <Text style={styles.baseText}>
-              {customData.map(item => item.work.email)}
+              {customData.map(item => item.home.email)}
             </Text>
             <Text style={styles.underline} />
             <Text style={styles.baseText}>
-              {customData.map(item => item.work.phone_number)}
-            </Text>
-            <Text style={styles.underline} />
-            <Text style={styles.baseText}>
-              {customData.map(item => item.work.company)}
-            </Text>
-            <Text style={styles.underline} />
-            <Text style={styles.baseText}>
-              {customData.map(item => item.work.department)}
-              {' '}
-              {customData.map(item => item.work.job_title)}
-              {' '}
+              {customData.map(item => item.home.phone_number)}
             </Text>
             <Text style={styles.underline} />
           </View>
         </View>
-      </FadeInView>
+      );
+    }
+    return (
+      <View style={styles.outerContainer}>
+        <View style={styles.container}>
+
+          <Image style={styles.image} source={{ uri: avatar[0] }} />
+          <Text style={styles.baseText}>
+
+            {customData.map(item => item.name.first_name)}
+            {customData.map(item => item.name.last_name)}
+          </Text>
+          <Button title="Show home info" onPress={this.switchViewHome} />
+          <Text style={styles.baseText}>
+            {customData.map(item => item.work.address)}
+          </Text>
+          <Text style={styles.underline} />
+          <Text style={styles.baseText}>
+            {customData.map(item => item.work.email)}
+          </Text>
+          <Text style={styles.underline} />
+          <Text style={styles.baseText}>
+            {customData.map(item => item.work.phone_number)}
+          </Text>
+          <Text style={styles.underline} />
+          <Text style={styles.baseText}>
+            {customData.map(item => item.work.company)}
+          </Text>
+          <Text style={styles.underline} />
+          <Text style={styles.baseText}>
+            {customData.map(item => item.work.department)}
+            {customData.map(item => item.work.job_title)}
+          </Text>
+          <Text style={styles.underline} />
+        </View>
+      </View>
     );
   }
 }

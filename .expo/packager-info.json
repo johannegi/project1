@@ -1,1 +1,8 @@
-{}
+{
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 12392,
+  "expoServerNgrokUrl": "https://t7-ft3.joi123.project1.exp.direct",
+  "packagerNgrokUrl": "https://packager.t7-ft3.joi123.project1.exp.direct",
+  "ngrokPid": 8592
+}

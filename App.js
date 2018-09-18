@@ -85,7 +85,6 @@ export default class App extends React.Component {
         <View style={styles.outerContainer}>
         <FadeInView style={{width: '100%', height: '100%', backgroundColor: 'white'}}>
           <View style={styles.container}>
-
             <Image style={styles.image} source={{ uri: avatar[0] }} />       
             <Text style={styles.baseText}>
               {customData.map(item => item.name.first_name)}

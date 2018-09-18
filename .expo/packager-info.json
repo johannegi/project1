@@ -1,8 +1,8 @@
 {
-  "expoServerPort": 19000,
-  "packagerPort": 19002,
-  "packagerPid": 22652,
-  "expoServerNgrokUrl": "https://t7-ft3.thorfinnurp.project1.exp.direct",
-  "packagerNgrokUrl": "https://packager.t7-ft3.thorfinnurp.project1.exp.direct",
-  "ngrokPid": 16772
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }

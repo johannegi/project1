@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import {
+  StyleSheet, Text, View, Image, Button,
+} from 'react-native';
 // Get the data from the json file
 const customData = require('./data-1.json');
 // get the avatar from the json file with map
@@ -55,13 +57,14 @@ export default class App extends React.Component {
   };
 
   render() {
-    if (this.state.counter % 2 == 0) {
+    if (this.state.counter % 2 === 0) {
       return (
         <View style={styles.outerContainer}>
           <View style={styles.container}>
             <Image style={styles.image} source={{ uri: avatar[0] }} />
             <Text style={styles.baseText}>
-              {customData.map(item => item.name.first_name)}{" "}
+              {customData.map(item => item.name.first_name)}
+              {' '}
               {customData.map(item => item.name.last_name)}
             </Text>
 
@@ -73,15 +76,15 @@ export default class App extends React.Component {
             <Text style={styles.baseText}>
               {customData.map(item => item.home.address)}
             </Text>
-            <Text style={styles.baseText2}> </Text>
+            <Text style={styles.baseText2} />
             <Text style={styles.baseText}>
               {customData.map(item => item.home.email)}
             </Text>
-            <Text style={styles.baseText2}> </Text>
+            <Text style={styles.baseText2} />
             <Text style={styles.baseText}>
               {customData.map(item => item.home.phone_number)}
             </Text>
-            <Text style={styles.baseText2}> </Text>
+            <Text style={styles.baseText2} />
           </View>
         </View>
       );

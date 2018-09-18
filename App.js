@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    // justifyContent: "center"
   },
   outerContainer: {
     flex: 1,
@@ -23,21 +22,10 @@ const styles = StyleSheet.create({
   baseText: {
     fontSize: 20,
   },
-  baseText2: {
+  underline: {
     width: '100%',
     borderBottomColor: 'black',
     borderBottomWidth: 2.5,
-  },
-  button2: {
-    marginTop: 10,
-    paddingTop: 15,
-    paddingBottom: 15,
-    marginLeft: 30,
-    marginRight: 30,
-    backgroundColor: '#00BCD4',
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: '#fff',
   },
   image: {
     borderWidth: 1,
@@ -83,8 +71,7 @@ export default class App extends React.Component {
     super(props);
     this.state = { counter: true };
   }
-  // let data = this.state.data;
-  addCounter = () => {
+  switchViewHome = () => {
     this.setState({ counter: true });
   };
   switchViewWork = () => {
@@ -98,33 +85,28 @@ export default class App extends React.Component {
         <View style={styles.outerContainer}>
         <FadeInView style={{width: '100%', height: '100%', backgroundColor: 'white'}}>
           <View style={styles.container}>
-
-            <Image style={styles.image} source={{ uri: avatar[0] }} />
-           
-           
+            <Image style={styles.image} source={{ uri: avatar[0] }} />       
             <Text style={styles.baseText}>
               {customData.map(item => item.name.first_name)}
               {' '}
               {customData.map(item => item.name.last_name)}
             </Text>
-
             <Button
-              style={styles.button2}
               title="Show work info"
               onPress={this.switchViewWork}
             />
             <Text style={styles.baseText}>
               {customData.map(item => item.home.address)}
             </Text>
-            <Text style={styles.baseText2} />
+            <Text style={styles.underline} />
             <Text style={styles.baseText}>
               {customData.map(item => item.home.email)}
             </Text>
-            <Text style={styles.baseText2} />
+            <Text style={styles.underline} />
             <Text style={styles.baseText}>
               {customData.map(item => item.home.phone_number)}
             </Text>
-            <Text style={styles.baseText2}> </Text>
+            <Text style={styles.underline}> </Text>
           </View>
           </FadeInView>
         </View>
@@ -141,28 +123,28 @@ export default class App extends React.Component {
               {customData.map(item => item.name.first_name)}{" "}
               {customData.map(item => item.name.last_name)}
             </Text>
-            <Button title="Show home info" onPress={this.addCounter} />
+            <Button title="Show home info" onPress={this.switchViewHome} />
             <Text style={styles.baseText}>
               {customData.map(item => item.work.address)}
             </Text>
-            <Text style={styles.baseText2}> </Text>
+            <Text style={styles.underline}> </Text>
             <Text style={styles.baseText}>
               {customData.map(item => item.work.email)}
             </Text>
-            <Text style={styles.baseText2}> </Text>
+            <Text style={styles.underline}> </Text>
             <Text style={styles.baseText}>
               {customData.map(item => item.work.phone_number)}
             </Text>
-            <Text style={styles.baseText2}> </Text>
+            <Text style={styles.underline}> </Text>
             <Text style={styles.baseText}>
               {customData.map(item => item.work.company)}
             </Text>
-            <Text style={styles.baseText2}> </Text>
+            <Text style={styles.underline}> </Text>
             <Text style={styles.baseText}>
               {customData.map(item => item.work.department)}{" "}
               {customData.map(item => item.work.job_title)}{" "}
             </Text>
-            <Text style={styles.baseText2}> </Text>
+            <Text style={styles.underline}> </Text>
           
           </View>
         </View>

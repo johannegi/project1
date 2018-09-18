@@ -79,11 +79,10 @@ export default class App extends React.Component {
   };
 
   render() {
-    if (this.state.counter == true) {
+    if (this.state.counter === true) {
       return (
-       
         <View style={styles.outerContainer}>
-        <FadeInView style={{width: '100%', height: '100%', backgroundColor: 'white'}}>
+          <FadeInView style={{width: '100%', height: '100%', backgroundColor: 'white'}}>
           <View style={styles.container}>
             <Image style={styles.image} source={{ uri: avatar[0] }} />       
             <Text style={styles.baseText}>

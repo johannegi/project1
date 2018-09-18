@@ -51,7 +51,7 @@ class FadeInView extends React.Component {
   }
 
   render() {
-    let { fadeAnim } = this.state;
+    const { fadeAnim } = this.state;
 
     return (
       <Animated.View // Special animatable View

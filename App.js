@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import { StyleSheet, Animated, Text, View, Image, Button } from 'react-native';
 
 let customData = require("./data-1.json");
 
@@ -44,6 +44,37 @@ const styles = StyleSheet.create({
   }
 });
 
+class FadeInView extends React.Component {
+  state = {
+    fadeAnim: new Animated.Value(0),  // Initial value for opacity: 0
+  }
+
+  componentDidMount() {
+    Animated.timing(                  // Animate over time
+      this.state.fadeAnim,            // The animated value to drive
+      {
+        toValue: 1,                   // Animate to opacity: 1 (opaque)
+        duration: 4000,              // Make it take a while
+      }
+    ).start();                        // Starts the animation
+  }
+
+  render() {
+    let { fadeAnim } = this.state;
+
+    return (
+      <Animated.View                 // Special animatable View
+        style={{
+          ...this.props.style,
+          opacity: fadeAnim,         // Bind opacity to animated value
+        }}
+      >
+        {this.props.children}
+      </Animated.View>
+    );
+  }
+}
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -57,9 +88,14 @@ export default class App extends React.Component {
   render() {
     if (this.state.counter % 2 == 0) {
       return (
+       
         <View style={styles.outerContainer}>
+        <FadeInView style={{width: '100%', height: '100%', backgroundColor: 'white'}}>
           <View style={styles.container}>
+
             <Image style={styles.image} source={{ uri: avatar[0] }} />
+           
+           
             <Text style={styles.baseText}>
               {customData.map(item => item.name.first_name)}{" "}
               {customData.map(item => item.name.last_name)}
@@ -82,15 +118,21 @@ export default class App extends React.Component {
               {customData.map(item => item.home.phone_number)}
             </Text>
             <Text style={styles.baseText2}> </Text>
+            
+            
           </View>
+          </FadeInView>
         </View>
       );
     } else {
       return (
+        <FadeInView style={{width: '100%', height: '100%', backgroundColor: 'white'}}>
         <View style={styles.outerContainer}>
           <View style={styles.container}>
+
             <Image style={styles.image} source={{ uri: avatar[0] }} />
             <Text style={styles.baseText}>
+
               {customData.map(item => item.name.first_name)}{" "}
               {customData.map(item => item.name.last_name)}
             </Text>
@@ -116,8 +158,10 @@ export default class App extends React.Component {
               {customData.map(item => item.work.job_title)}{" "}
             </Text>
             <Text style={styles.baseText2}> </Text>
+          
           </View>
         </View>
+        </FadeInView>
       );
     }
   }
